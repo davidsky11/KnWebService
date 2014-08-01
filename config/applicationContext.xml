@@ -35,7 +35,7 @@
     <bean id="baseServiceImpl" class="com.whl.service.impl.common.BaseServiceImpl"/>
     
     
-    <!-- 配置Android WebService接口 http://localhost:8080/KnWebService/services/android?wsdl -->
+    <!-- 配置Android WebService接口 http://localhost:8080/KnService/services/android?wsdl -->
     <jaxws:server
 		id="androidServer"
 		address="/android" 
@@ -45,7 +45,7 @@
         </jaxws:serviceBean>   
     </jaxws:server>
     
-    <!--  配置Account WebService接口 http://localhost:8080/KnWebService/services/account?wsdl -->   
+    <!--  配置Account WebService接口 http://localhost:8080/KnService/services/account?wsdl -->   
 	<jaxws:server
 		id="accountServer"
 		address="/account" 
@@ -55,7 +55,7 @@
         </jaxws:serviceBean>   
     </jaxws:server>
     
-    <!-- 配置Android WebService接口 http://localhost:8080/KnWebService/services/detail?wsdl -->
+    <!-- 配置Android WebService接口 http://localhost:8080/KnService/services/detail?wsdl -->
     <jaxws:server
 		id="detailServer"
 		address="/detail" 
@@ -65,7 +65,7 @@
         </jaxws:serviceBean>   
     </jaxws:server>
     
-    <!-- 配置Android WebService接口 http://localhost:8080/KnWebService/services/grade_1?wsdl -->
+    <!-- 配置Android WebService接口 http://localhost:8080/KnService/services/grade_1?wsdl -->
     <jaxws:server
 		id="grade_1Server"
 		address="/grade_1" 
@@ -75,7 +75,7 @@
         </jaxws:serviceBean>   
     </jaxws:server>
     
-    <!-- 配置Android WebService接口 http://localhost:8080/KnWebService/services/grade_2?wsdl -->
+    <!-- 配置Android WebService接口 http://localhost:8080/KnService/services/grade_2?wsdl -->
     <jaxws:server
 		id="grade_2Server"
 		address="/grade_2" 
@@ -85,7 +85,7 @@
         </jaxws:serviceBean>   
     </jaxws:server>
     
-    <!-- 配置Android WebService接口 http://localhost:8080/KnWebService/services/grade_3?wsdl -->
+    <!-- 配置Android WebService接口 http://localhost:8080/KnService/services/grade_3?wsdl -->
     <jaxws:server
 		id="grade_3Server"
 		address="/grade_3" 

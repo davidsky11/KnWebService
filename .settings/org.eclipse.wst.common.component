@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
-    <wb-module deploy-name="SeuicService">
+    <wb-module deploy-name="KnService">
         <wb-resource deploy-path="/" source-path="/WebContent"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/config"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/.apt_generated"/>
-        <property name="context-root" value="/SeuicService"/>
-        <property name="java-output-path" value="/SeuicService/WebContent/WEB-INF/classes"/>
+        <property name="context-root" value="/KnService"/>
+        <property name="java-output-path" value="/KnService/WebContent/WEB-INF/classes"/>
     </wb-module>
 </project-modules>

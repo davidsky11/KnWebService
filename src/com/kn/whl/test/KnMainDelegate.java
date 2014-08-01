@@ -6,10 +6,10 @@ targetNamespace =
 	"http://test.whl.kn.com/"
 ,
 serviceName = 
-	"SeuicMainService"
+	"KnMainService"
 , 
 portName =
-	"SeuicMainPort"
+	"KnMainPort"
 	,wsdlLocation = "WEB-INF/wsdl/KnMainService.wsdl"
 )
 
