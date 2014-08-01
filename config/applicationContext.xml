@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans
+	xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://www.springframework.org/schema/context 
+						http://www.springframework.org/schema/context/spring-context.xsd
+						http://cxf.apache.org/jaxws    
+            			http://cxf.apache.org/schemas/jaxws.xsd">
+    
+    <context:property-placeholder location="classpath:jdbc.properties" />
+    <context:component-scan base-package="com.kn.whl"/>
+    
+    <import resource="classpath:dao.xml"/>
+    <import resource="classpath:service.xml"/>        
+     
+    <!-- Import apache CXF bean definition 固定 -->  
+    <import resource="classpath:META-INF/cxf/cxf.xml" />  
+    <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />  
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />  
+    
+    <!-- <bean id="accountService" class="com.kn.whl.service.impl.AccountServiceImpl"/>
+    <jaxws:server
+    	id="accountServer"
+    	serviceClass="com.kn.whl.service.AccountService"
+    	address="/Account">
+    	<jaxws:serviceBean>
+    		<ref bean="accountService"/>
+    	</jaxws:serviceBean>
+    </jaxws:server> -->
+    
+    <bean id="baseServiceImpl" class="com.whl.service.impl.common.BaseServiceImpl"/>
+    
+    
+    <!-- 配置Android WebService接口 http://localhost:8080/KnWebService/services/android?wsdl -->
+    <jaxws:server
+		id="androidServer"
+		address="/android" 
+		serviceClass="com.kn.whl.service.AndroidService" >   
+        <jaxws:serviceBean>   
+            <bean id="androidService" class="com.kn.whl.service.impl.AndroidServiceImpl"/>     
+        </jaxws:serviceBean>   
+    </jaxws:server>
+    
+    <!--  配置Account WebService接口 http://localhost:8080/KnWebService/services/account?wsdl -->   
+	<jaxws:server
+		id="accountServer"
+		address="/account" 
+		serviceClass="com.kn.whl.service.AccountService" >   
+        <jaxws:serviceBean>
+            <bean id="accountService" class="com.kn.whl.service.impl.AccountServiceImpl" parent="baseServiceImpl"/>     
+        </jaxws:serviceBean>   
+    </jaxws:server>
+    
+    <!-- 配置Android WebService接口 http://localhost:8080/KnWebService/services/detail?wsdl -->
+    <jaxws:server
+		id="detailServer"
+		address="/detail" 
+		serviceClass="com.kn.whl.service.DetailService" >   
+        <jaxws:serviceBean>   
+            <bean id="detailService" class="com.kn.whl.service.impl.DetailServiceImpl"  parent="baseServiceImpl"/>     
+        </jaxws:serviceBean>   
+    </jaxws:server>
+    
+    <!-- 配置Android WebService接口 http://localhost:8080/KnWebService/services/grade_1?wsdl -->
+    <jaxws:server
+		id="grade_1Server"
+		address="/grade_1" 
+		serviceClass="com.kn.whl.service.Grade_1Service" >   
+        <jaxws:serviceBean>   
+            <bean id="grade_1Service" class="com.kn.whl.service.impl.Grade_1ServiceImpl" parent="baseServiceImpl"/>     
+        </jaxws:serviceBean>   
+    </jaxws:server>
+    
+    <!-- 配置Android WebService接口 http://localhost:8080/KnWebService/services/grade_2?wsdl -->
+    <jaxws:server
+		id="grade_2Server"
+		address="/grade_2" 
+		serviceClass="com.kn.whl.service.Grade_2Service" >   
+        <jaxws:serviceBean>   
+            <bean id="grade_2Service" class="com.kn.whl.service.impl.Grade_2ServiceImpl" parent="baseServiceImpl"/>     
+        </jaxws:serviceBean>   
+    </jaxws:server>
+    
+    <!-- 配置Android WebService接口 http://localhost:8080/KnWebService/services/grade_3?wsdl -->
+    <jaxws:server
+		id="grade_3Server"
+		address="/grade_3" 
+		serviceClass="com.kn.whl.service.Grade_3Service" >   
+        <jaxws:serviceBean>   
+            <bean id="grade_3Service" class="com.kn.whl.service.impl.Grade_3ServiceImpl" parent="baseServiceImpl"/>     
+        </jaxws:serviceBean>   
+    </jaxws:server>
+    
+    
+    
+    
+    
+    
+    
+    <!--services接口配置   
+    <bean id="helloServicesBean" class="com.kn.whl.web.services.impl.HelloServicesImpl" /> --> 
+    <!-- CXF 配置WebServices的服务名及访问地址   
+    <jaxws:server id="helloServices" address="/HelloServices"   
+            serviceClass="com.kn.whl.web.services.IHelloServices">  
+            <jaxws:serviceBean>  
+                <ref bean="helloServicesBean"/>  
+            </jaxws:serviceBean>  
+    </jaxws:server>-->
+    
+    <!-- 如果使用这个的话，在服务端代码里面使用的注解则是：
+    @WebService(endpointInterface="com.kn.whl.web.services.IHelloServices")
+    
+    <jaxws:endpoint id="helloServices" address="/HelloServices"   
+            implementorClass="com.kn.whl.web.services.IHelloServices">
+        <jaxws:implementor>
+            <ref bean="helloServicesBean"/>
+        </jaxws:implementor>
+    </jaxws:endpoint> -->
+    
+</beans>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://test.whl.kn.com/" targetNamespace="http://test.whl.kn.com/" version="1.0">
+
+  <xs:element name="getName" type="tns:getName"/>
+
+  <xs:element name="getNameResponse" type="tns:getNameResponse"/>
+
+  <xs:element name="getServiceTime" type="tns:getServiceTime"/>
+
+  <xs:element name="getServiceTimeResponse" type="tns:getServiceTimeResponse"/>
+
+  <xs:element name="getServiceVersion" type="tns:getServiceVersion"/>
+
+  <xs:element name="getServiceVersionResponse" type="tns:getServiceVersionResponse"/>
+
+  <xs:complexType name="getName">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="arg0" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getNameResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getServiceVersion">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getServiceVersionResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getServiceTime">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getServiceTimeResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="return" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
